@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Apply for Jobs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <script>
+       
+
+          // var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+           function validateForm(){
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+            var pattern= /^[0-9]{10}$/;
+
+            var zip = /^[0-9]{6}$/;
+
+            if(document.getElementById("fname").value == ''){
+                alert('fill first name');
+                return false;
+            }
+            if(document.getElementById("lname").value == ''){
+                alert('fill last name');
+                return false;
+            }
+            if(document.getElementById("mail").value == ''){
+                alert('fill e-mail id');
+                return false;
+            }
+             
+            if (reg.test(document.getElementById("mail").value) == false) 
+            {
+                alert('Invalid Email Address');
+                return false;
+            }
+            
+            if(document.getElementById("ph").value == ''){
+                alert('fill phone number');
+                return false;
+            }
+            if(document.getElementById("ph").value.length!=10){
+                alert('must be 10 digit!');
+                return false;
+            }
+             
+            if(pattern.test(document.getElementById("ph").value) == false){
+                alert('invalid format for indian mobile number!')
+                return false;
+            }
+
+
+            if(document.getElementById("add").value == ''){
+                alert('fill address');
+                return false;
+            }
+            if(document.getElementById("city").value == ''){
+                alert('fill city');
+                return false;
+            }
+            if(document.getElementById("stat").value == ''){
+                alert('fill state');
+                return false;
+            }
+            if(document.getElementById("zp").value == ''){
+                alert('fill zip-code');
+                return false;
+            }
+            if(document.getElementById("zp").value.length!=6){
+                alert('must be 6 digit!');
+                return false;
+            }
+
+            if (zip.test(document.getElementById("zp").value)== false){
+                alert('must be integer!');
+                return false;
+            }
+            if(document.getElementById("coun").selectedIndex==0){
+                alert('fill country');
+                return false;
+            }
+            if(document.getElementById("edul").selectedIndex==0){
+                alert('fill education level');
+                return false;
+            }
+            if(document.getElementById("edut").selectedIndex==0){
+                alert('fill education type');
+                return false;
+            }
+
+           }
+           function myFunction(){
+                var checkbox=document.getElementById("box1");
+                var checkbox1=document.getElementById("box2");
+                var input1=document.getElementById("cem");
+                var input2=document.getElementById("yoe");
+                var hidd1 = document.getElementById("hid1");
+                var hidd2=document.getElementById("hid2");
+                if(checkbox.checked==true && checkbox1.checked==true){
+                    checkbox.checked = false;
+                    checkbox1.checked = false;
+                    alert("only check one box at a time!");
+                    return false;
+                }
+                if(checkbox.checked==true){
+                    input1.style.display="block";
+                    input2.style.display="block";
+                    hidd1.style.display="block";
+                    hidd2.style.display="block";
+                    
+                }
+                
+                else{
+                    input1.style.display="none";
+                    input2.style.display="none";
+                    hidd1.style.display="none";
+                    hidd2.style.display="none";
+                }
+               
+               
+
+
+           }
+    </script>
+    <body>
+        <div>
+            <img src="backpic.jpg" alt="back-img" width="100%">
+            <div class="main-nav">
+                <h1 style="text-align:center;color:tomato;">Registration Form</h1> 
+            <form onsubmit="return validateForm()" method="POST">
+                <fieldset>
+                    <legend style="color: yellow;">Applicants Details</legend>
+                <table>
+                    <tr>
+                        <td><label for="fname">First Name </label>
+                             <input type="text" name="fname" id="fname" pattern="[A-Za-z\s]{3,25}"></td>
+                        <td><label for="lname">Last Name </label>
+                            <input type="text" name="lname" id="lname" pattern="[A-Za-z\s]{2,25}"></td>
+                        <td><label for="mail">E-mail </label>
+                            <input type="text" name="mail" id="mail" ></td> 
+                        <td><label for="ph">Phone </label>
+                            <input type="text" name="ph" id="ph" ></td>            
+                    </tr>
+                    <tr>
+                        <td><label for="add">Address </label>
+                             <input type="text" name="add" id="add" pattern="[A-Za-z0-9\s]{3,35}"></td>
+                        <td><label for="city">City </label>
+                            <input type="text" name="city" id="city" pattern="[A-Za-z\s]{3,26}"></td>
+                        <td><label for="stat">State </label>
+                            <input type="text" name="stat" id="stat" pattern="[A-Za-z\s]{2,26}" ></td> 
+                        <td><label for="zp">Zip-Code </label>
+                            <input type="text" name="zp" id="zp" ></td>            
+                    </tr>
+                    <tr>
+                       <td> <label for="coun">Country </label>
+                        <select name="coun" id="coun">
+                            <option value="select">Select..</option>
+                            <option value="ar">Argentina</option>
+                            <option value="au">Australia</option>
+                            <option value="braz">Brazil</option>
+                            <option value="can">Canada</option>
+                            <option value="chin">China</option>
+                            <option value="den">Denmark</option>
+                            <option value="eg">Egypt</option>
+                            <option value="fin">Finland</option>
+                            <option value="fran">France</option>
+                            <option value="ger">Germany</option>
+                            <option value="gree">Greece</option>
+                            <option value="hong">Hong-Kong</option>
+                            <option value="Ind">India</option>
+                            <option value="Ita">Italy</option>
+                            <option value="Ir">Ireland</option>
+                            <option value="ja">Japan</option>
+                            <option value="us">USA</option>
+                            <option value="uk">UK</option>
+                            <option value="ua">UAE</option>
+                        </select></td>
+                        <td><label for="edul">Education Level </label>
+                             <select name="edul" id="edul">
+                                 <option value="select">Select..</option>
+                                   <option value="secon">10th Class</option>
+                                   <option value="hsecon">12th Class</option>
+                                   <option value="dip">Diploma</option>
+                                   <option value="grad">B.E/B.Tech</option>
+                                   <option value="postgrad">Post-Graduate</option>
+                                   <option value="masgrad">M.Tech</option>
+                                   <option value="phd">Ph.D</option>
+                             </select></td>
+                        <td><label for="edut">Education Type </label>
+                            <select name="edut" id="edut">
+                                      <option value="select">Select..</option>
+                                      <option value="ft">Full-Time</option>
+                                      <option value="pt">Part-Time</option>
+                                      <option value="dst">Distance</option>
+
+                            </select></td>
+                                     
+                    </tr>
+                    <tr>
+                        <td><label for="myfile">Resume </label>
+                            <input type="file" id="myfile" name="myfile" ></td>
+                        <td><label for="cletter">Cover Letter</label>
+                            <textarea name="cletter" name="cletter"></textarea></td>    
+                    </tr>
+                    <tr>
+                        <td><label for="aemp">Are You Employed?</label><br>
+                            <label for="box1">Yes</label>
+                             <input type="checkbox" name="box1" id="box1" onclick="myFunction()">
+                             <label id="hid1" style="display: none;" for="cem">Current Employer</label>
+                             <input type="text" name="cem" id="cem" style="display: none;">
+                             <label id="hid2" style="display: none;" for="yoe">Years of Experience</label>
+                             <input type="number" name="yoe" id="yoe" style="display: none;"></td>
+                        </tr>
+                        <tr>
+                            <td>      
+                             <label for="box2">No</label>
+                             <input type="checkbox" name="box2" id="box2"></td>
+                             
+                             
+                    </tr>
+                    <tr>
+                        <td><label for="jwa">Jobs you want to apply</label></td></tr>
+                         <tr><td>    <label for="box3">Data Analyst</label>
+                             <input type="checkbox" name="box3" id="box3"></td></tr>
+                             <tr><td>     <label for="box4">Data Scientist</label>
+                             <input type="checkbox" name="box4" id="box4"></td></tr>
+                                <tr><td>  <label for="box5">Android App Developer</label>
+                             <input type="checkbox" name="box5" id="box5"></td></tr>
+                        <tr><td>   <label for="box6">System Engineer</label>
+                             <input type="checkbox" name="box6" id="box6">
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit"></td>
+                    </tr>
+
+                </table> 
+                </fieldset>
+                </form>
+                </div>
+        </div>          
+    </body>
+</html>

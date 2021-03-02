@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Enter Job Data</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+
+    <script>
+        function validateForm() {
+            if(document.getElementById("tit").value==''){
+                alert('put post');
+                return false;
+            }
+            if(document.getElementById("ty").selectedIndex==0){
+                alert('put role');
+                return false;
+            }
+            if(document.getElementById("dept").selectedIndex==0){
+                alert('put dept');
+                return false;
+            }
+            if(document.getElementById("coun").selectedIndex==0){
+                alert('put country');
+                return false;
+            }
+            if(document.getElementById("des").value==''){
+                alert('put description');
+                return false;
+            }
+
+            var GivenDate = document.getElementById('od').value;
+            var CurrentDate = new Date();
+            GivenDate = new Date(GivenDate);
+
+            if(GivenDate > CurrentDate){
+                alert('Given date is greater than the current date.');
+            }
+          
+          
+        }
+    </script>
+
+
+    <body>
+        <div>
+        <img src="backpic.jpg" alt="back-img" width="100%">
+
+               
+        <div class="container">
+            <h1 style="text-align:center;color:tomato;">Create Job</h1>
+        <form  onsubmit="return validateForm()" method="post">
+            <fieldset>
+                
+                <legend style="color: yellow;">Job Details</legend>
+                <label for="tit">Title</label>
+                <input type="text" name="tit" id="tit"  placeholder="Enter title" pattern="[A-Za-z\s]{3,25}"> <br><br>
+                <label for="ty">Type</label>
+                <select name="ty" id="ty" >
+                    <option value="select">Select..</option>
+                    <option value="pt">Programmer</option>
+                    <option value="ptrain">Programmer Analyst Trainee</option>
+                    <option value="pa">Programmer Analyst</option>
+                    <option value="a">Associate</option>
+                    <option value="sa">Senior Associate</option>
+                    <option value="m">Manager</option>
+                </select><br><br>
+                <label for="dept">Department</label>
+                <select name="dept" id="dept" >
+                    <option value="select">Select..</option>
+                         <option value="prod">Production</option>
+                        <option value="rd">Research & Development</option>
+                        <option value="pur">Purchasing</option>
+                       <option value="market">Marketing</option>
+                       <option value="hrm">Human Resource Management</option>
+                       <option value="af">Accounting & Finance</option>
+                </select><br><br>
+                <label for="coun">Country</label>
+                            <select name="coun" id="coun">
+                                <option value="select">Select..</option>
+                                <option value="ar">Argentina</option>
+                                <option value="au">Australia</option>
+                                <option value="bhu">Bhutan</option>
+                                <option value="braz">Brazil</option>
+                                <option value="can">Canada</option>
+                                <option value="chi">Chile</option>
+                                <option value="chin">China</option>
+                                <option value="den">Denmark</option>
+                                <option value="eg">Egypt</option>
+                                <option value="fin">Finland</option>
+                                <option value="fran">France</option>
+                                <option value="ger">Germany</option>
+                                <option value="gree">Greece</option>
+                                <option value="hong">Hong-Kong</option>
+                                <option value="Ind">India</option>
+                                <option value="Ita">Italy</option>
+                                <option value="Ir">Ireland</option>
+                                <option value="ja">Japan</option>
+                                <option value="us">USA</option>
+                                <option value="uk">UK</option>
+                                <option value="ua">UAE</option>
+                            </select><br><br>
+                        <label for="des">Description</label>
+                        <textarea name="des" id="des" pattern=[A-za-z0-9]></textarea><br><br>
+                        <label for="od">Opening Date</label>
+                            <input type="date" name="od" id="od" ><br><br>
+                     <button type="submit"  >Submit</button>
+            </fieldset>
+        </form>
+        </div>
+      </div>  
+    </body>
+</html>

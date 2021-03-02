@@ -1,0 +1,22 @@
+.body{
+    margin: 0;
+    padding: 0;
+    background: skyblue;
+}
+.top h1{
+    text-align: center;
+    padding: 20px;
+}
+.main-nav fieldset{
+    border-width: 100%;
+    color:chartreuse;
+}
+.main-nav {
+    position: absolute;
+   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+label{
+    display: inline-block;
+}
